@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS基礎練習 - 自己紹介ページ</title>
+    <script src="../public/lib/sample01.js"></script>
+    <style>
+        /* 1. 基本のリセットとページ全体の設定 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* 2. ヘッダーのスタイル */
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 18px;
+        }
+
+        /* 3. メインコンテンツのコンテナ */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 4. セクションのスタイル */
+        section {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #4a90e2;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* 5. リストのスタイル */
+        ul {
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 6. ボタンのスタイル */
+        .button {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #357abd;
+        }
+
+        /* 7. フッターのスタイル */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー部分 -->
+    <header>
+        <h1>kaiwarex</h1>
+        <p>検証用ページ</p>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+        <!--セクション -->
+        <section>
+            <h2>検証中の項目</h2>
+            <ul>
+                <li>Vanilla JS</li>
+                <li>JSコードをTypeScriptへ書き換える(これから)</li>
+                <li>Expressでの作成したAPIをJSあるいはTSから叩く(これから)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>検証用フォーム</h2>
+            <form action="" method="get" onsubmit="return false;">
+                <input type="button" value="exe1" onclick="test01()">
+                <!-- 美しくないやり方だけど応急処置的な改行 -->
+                <br>
+                <!-- チェックボックス (not配列)-->
+                <input type="checkbox" name="01" id="chk01" value="chkbox01">
+                <input type="checkbox" name="02" id="chk02" value="chkbox02">
+                <input type="checkbox" name="03" id="chk03" value="chkbox03">
+                <input type="button" value="exe2" onclick="test02()">
+                <br>
+                <!-- チェックボックス (配列)-->
+                <input type="checkbox" name="chkbox" id="chk" value="chkbox01">
+                <input type="checkbox" name="chkbox" id="chk" value="chkbox02">
+                <input type="checkbox" name="chkbox" id="chk" value="chkbox03">
+                <input type="button" value="exe2_" onclick="test02_()">
+                <br>
+                <!-- ラジオボタン -->
+                <input type="radio" name="01" id="rdo01" value="rdobtn01">
+                <input type="radio" name="02" id="rdo02" value="rdobtn02">
+                <input type="radio" name="03" id="rdo03" value="rdobtn03">
+                <input type="button" value="exe3" onclick="test03()">
+                <br>
+                <!-- セレクトボックス -->
+                <select name="pets" id="pet-select">
+                    <option value="">--1 つ選択してください--</option>
+                    <option value="dog">犬</option>
+                    <option value="cat">猫</option>
+                    <option value="hamster">ハムスター</option>
+                    <option value="parrot">オウム</option>
+                    <option value="spider">クモ</option>
+                    <option value="goldfish">金魚</option>
+                </select>
+                <input type="button" value="exe4" onclick="test04()">
+                <br>
+            </form>
+            <!-- 出力用の領域 -->
+            <span id="disp_field"></span>
+            <br>
+            <span id="disp_field_"></span>
+            <br>
+            <span id="disp_field02"></span>
+            <br>
+            <span id="disp_field03"></span>
+        </section>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2026 kaiwarex. CSS学習用サンプルページ</p>
+    </footer>
+</body>
+</html>
