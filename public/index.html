@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS基礎練習 - 自己紹介ページ</title>
-    <script src="../public/lib/sample01.js"></script>
+    <script src="./lib/sample01.js"></script>
     <style>
         /* 1. 基本のリセットとページ全体の設定 */
         body {
@@ -103,35 +103,29 @@
         <section>
             <h2>検証中の項目</h2>
             <ul>
-                <li>Vanilla JS</li>
-                <li>JSコードをTypeScriptへ書き換える(これから)</li>
-                <li>Expressでの作成したAPIをJSあるいはTSから叩く(これから)</li>
+                <li>Vanilla JSのHTML要素のname属性でデータの在り方が変わる(済)</li>
+                <li>Expressでの作成したAPIをJSあるいはTSから叩く(着手中)</li>
+                <li>JSコードをTypeScriptへ書き換える(未着手)</li>
             </ul>
         </section>
 
         <section>
             <h2>検証用フォーム</h2>
             <form action="" method="get" onsubmit="return false;">
-                <input type="button" value="exe1" onclick="test01()">
+                <input type="button" value="test01" onclick="test01()">
                 <!-- 美しくないやり方だけど応急処置的な改行 -->
                 <br>
-                <!-- チェックボックス (not配列)-->
+                <!-- チェックボックス -->
                 <input type="checkbox" name="01" id="chk01" value="chkbox01">
                 <input type="checkbox" name="02" id="chk02" value="chkbox02">
                 <input type="checkbox" name="03" id="chk03" value="chkbox03">
-                <input type="button" value="exe2" onclick="test02()">
-                <br>
-                <!-- チェックボックス (配列)-->
-                <input type="checkbox" name="chkbox" id="chk" value="chkbox01">
-                <input type="checkbox" name="chkbox" id="chk" value="chkbox02">
-                <input type="checkbox" name="chkbox" id="chk" value="chkbox03">
-                <input type="button" value="exe2_" onclick="test02_()">
+                <input type="button" value="test02" onclick="test02()">
                 <br>
                 <!-- ラジオボタン -->
                 <input type="radio" name="01" id="rdo01" value="rdobtn01">
                 <input type="radio" name="02" id="rdo02" value="rdobtn02">
                 <input type="radio" name="03" id="rdo03" value="rdobtn03">
-                <input type="button" value="exe3" onclick="test03()">
+                <input type="button" value="test03" onclick="test03()">
                 <br>
                 <!-- セレクトボックス -->
                 <select name="pets" id="pet-select">
@@ -143,17 +137,12 @@
                     <option value="spider">クモ</option>
                     <option value="goldfish">金魚</option>
                 </select>
-                <input type="button" value="exe4" onclick="test04()">
+                <input type="button" value="test04" onclick="test04()">
                 <br>
             </form>
             <!-- 出力用の領域 -->
             <span id="disp_field"></span>
             <br>
-            <span id="disp_field_"></span>
-            <br>
-            <span id="disp_field02"></span>
-            <br>
-            <span id="disp_field03"></span>
         </section>
     </div>
 
