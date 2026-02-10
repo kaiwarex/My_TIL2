@@ -62,6 +62,7 @@ function displayResult(message, type = 'info') {
  * test01: シンプルなAPIテスト
  */
 async function test01() {
+    console.log("test01()");
     displayResult('APIを呼び出し中...', 'info');
     
     const result = await callAPI('/test');
@@ -99,6 +100,24 @@ async function test02() {
         checkedItems: checkedItems 
     });
     
+    if (result.status === 'success') {
+        displayResult(`✅ ${result.message} (${result.count}個選択)`, 'success');
+        console.log('サーバーレスポンス:', result);
+    } else {
+        displayResult(`❌ ${result.message}`, 'error');
+    }
+}
+
+async function test02_a(){
+    const checkboxes_ = document.getElementById('chk');
+    const checkedItems_ = checkboxes_.checked;
+
+    // APIに送信
+    displayResult('APIにデータを送信中...', 'info');
+    
+    const result = await callAPI('/checkbox_', 'POST', { 
+        checkedItems_: checkedItems_ 
+    });
     if (result.status === 'success') {
         displayResult(`✅ ${result.message} (${result.count}個選択)`, 'success');
         console.log('サーバーレスポンス:', result);
@@ -148,6 +167,43 @@ async function test03() {
         displayResult(`❌ ${result.message}`, 'error');
     }
 }
+
+/**
+ * test04: セレクトボックスの値をAPIに送信
+ */
+async function test04() {
+    // セレクトボックスの要素を取得
+    const selectBox = document.getElementById('pet-select');
+    
+    if (!selectBox) {
+        displayResult('⚠️ セレクトボックスが見つかりません', 'warning');
+        return;
+    }
+    
+    const selectedItem = selectBox.value;  // 選択された値を取得
+    
+    if (!selectedItem) {
+        displayResult('⚠️ 何も選択されていません', 'warning');
+        return;
+    }
+    
+    console.log('選択された項目:', selectedItem);
+    
+    // APIに送信
+    displayResult('APIにデータを送信中...', 'info');
+    
+    const result = await callAPI('/selectbox', 'POST', {
+        selectedItem: selectedItem
+    });
+    
+    if (result.status === 'success') {
+        displayResult(`✅ ${result.message}`, 'success');
+        console.log('サーバーレスポンス:', result);
+    } else {
+        displayResult(`❌ ${result.message}`, 'error');
+    }
+}
+
 
 // ========================
 // 追加の便利関数
