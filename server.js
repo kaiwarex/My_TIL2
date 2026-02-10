@@ -86,8 +86,31 @@ app.post('/api/radio', (req, res) => {
         ...response
     });
 });
+// 4. セレクトボックスの値を受け取るAPI
+app.post('/api/selectbox', (req, res) => {
+    const { selectedItem } = req.body;
+    
+    console.log('受信したセレクトボックス:', selectedItem);
+    
+    // データが送られてこなかった場合のエラーハンドリング
+    if (!selectedItem) {
+        return res.status(400).json({
+            status: 'error',
+            message: '選択項目が送信されていません'
+        });
+    }
+    
+    // 選択された値に応じたメッセージを作成
+    let message = `${selectedItem}が選択されました`;
+    
+    res.json({
+        status: 'success',
+        selectedValue: selectedItem,  // 単一の値
+        message: message
+    });
+});
 
-// 4. ユーザー情報を取得するAPI(モックデータ)
+// 5. ユーザー情報を取得するAPI(モックデータ)
 app.get('/api/user/:id', (req, res) => {
     const userId = req.params.id;
     
@@ -113,7 +136,7 @@ app.get('/api/user/:id', (req, res) => {
     }
 });
 
-// 5. フォームデータを保存するAPI(メモリ上に保存)
+// 6. フォームデータを保存するAPI(メモリ上に保存)
 let formSubmissions = [];
 
 app.post('/api/form/submit', (req, res) => {
@@ -137,7 +160,7 @@ app.post('/api/form/submit', (req, res) => {
     });
 });
 
-// 6. 保存されたフォームデータを取得
+// 7. 保存されたフォームデータを取得
 app.get('/api/form/submissions', (req, res) => {
     res.json({
         status: 'success',
@@ -161,7 +184,9 @@ app.listen(PORT, () => {
     console.log(`📝 API エンドポイント:`);
     console.log(`   GET  /api/test`);
     console.log(`   POST /api/checkbox`);
+    console.log(`   POST /api/checkbox_`);
     console.log(`   POST /api/radio`);
+    console.log(`   POST /api/selectbox`);
     console.log(`   GET  /api/user/:id`);
     console.log(`   POST /api/form/submit`);
     console.log(`   GET  /api/form/submissions`);
