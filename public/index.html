@@ -139,6 +139,14 @@
                 </select>
                 <input type="button" value="test04" onclick="test04()">
                 <br>
+                <!-- 追加機能 -->
+                <div class="form-group">
+                    <label>4️⃣ その他のAPI</label>
+                    <input type="button" value="ユーザー情報取得" onclick="fetchUserInfo(1)">
+                    <input type="button" value="フォーム送信" onclick="submitForm()">
+                    <input type="button" value="データ一覧" onclick="getSubmissions()">
+                    <div class="code-hint">→ 各種APIエンドポイントを実行</div>
+                </div>
             </form>
             <!-- 出力用の領域 -->
             <span id="disp_field"></span>
